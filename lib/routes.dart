@@ -1,4 +1,3 @@
 class AppRoutes {
-  static final users = '/';
-  static final userDetails = '/details';
+  static final people = '/';
 }

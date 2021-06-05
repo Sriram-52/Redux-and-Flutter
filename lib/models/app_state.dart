@@ -1,23 +1,15 @@
-import 'package:meta/meta.dart';
-import 'package:paginate_data/models/users/user_state.dart';
-
-@immutable
 class AppState {
-  final UserState user;
+  List<dynamic> people;
+  bool isLoading;
+  String error;
+  int page = 1;
 
-  AppState({
-    this.user,
-  });
+  AppState({this.people, this.isLoading, this.error});
 
-  factory AppState.initial() => AppState(
-        user: UserState.initial(),
-      );
-
-  AppState copyWith({
-    UserState user,
-  }) {
-    return AppState(
-      user: user ?? this.user,
-    );
+  AppState.fromAppState(AppState another) {
+    people = another.people ?? [];
+    isLoading = another.isLoading ?? false;
+    error = another.error ?? "";
+    page = another.page ?? this.page;
   }
 }
